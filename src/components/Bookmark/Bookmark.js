@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import "./../../App.css"
+
 export default function Bookmark ({
   bookmark,
   updateBookmark,
@@ -26,9 +27,10 @@ export default function Bookmark ({
 
   return (
     <>
+
      <div
       className={`card ${flip ? 'flip' : ''}`}
-      style={{ height: height }}
+      style={{ height: height , width: "10%",padding: "1%", margin:".5%"}}
       onClick={() => setFlip(!flip)}
     >
       <div className="front" ref={frontEl}>
@@ -39,6 +41,11 @@ export default function Bookmark ({
             return <div className="bookmark-option" key={option}>{option}</div>
           })}
         </div> */}
+                <button
+          onClick={() => deleteBookmark(bookmark._id)}
+        >
+          X
+        </button>
       </div>
       <div className="back" ref={backEl}>{bookmark.title}</div>
     </div>
@@ -58,12 +65,9 @@ export default function Bookmark ({
           defaultValue={bookmark.title}
         />
         <img src={bookmark.url} alt=''HI/>
-        <button
-          onClick={() => deleteBookmark(bookmark._id)}
-        >
-          X
-        </button>
+
       </li> */}
+
     </>
   )
 }
