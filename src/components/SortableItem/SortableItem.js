@@ -2,8 +2,8 @@ import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-export function Item(props) {
-  const { id } = props;
+export function Item(bookmarks) {
+  const { id } = bookmarks;
 
   const style = {
     width: "100%",
@@ -19,14 +19,14 @@ export function Item(props) {
   return <div style={style}>{id}</div>;
 }
 
-export default function SortableItem(props) {
+export default function SortableItem(bookmarks) {
   const {
     attributes,
     listeners,
     setNodeRef,
     transform,
     transition
-  } = useSortable({ id: props.id });
+  } = useSortable({ id: bookmarks.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -35,7 +35,7 @@ export default function SortableItem(props) {
 
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <Item id={props.id} />
+      <Item id={bookmarks.id} />
     </div>
   );
 }
