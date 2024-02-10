@@ -2,8 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import Auth from './components/Auth/Auth'
 import CreateBookmark from './components/CreateBookmark/CreateBookmark'
 import BookmarkList from './components/BookmarkList/BookmarkList'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import { DndContext, closestCenter } from "@dnd-kit/core";
+import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { SortableItem } from './components/SortableItem/SortableItem';
 export default function App () {
   
   const handleChangeAuth = (event) => {
